@@ -39,21 +39,22 @@ public class ProducaoController {
         }
     }
 
-    @PutMapping("/update/{codigo}")
-    public ResponseEntity<String> update(@RequestBody Producao producao, @PathVariable String codigo){
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@RequestBody Producao producao, @PathVariable Integer id){
         try {
-            String mensagem = this.producaoService.update(producao, codigo);
+            String mensagem = this.producaoService.update(producao, id);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
             
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+    
 
-    @DeleteMapping("/delete/{codigo}")
-    public ResponseEntity<String> delete(@PathVariable String codigo){
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id){
         try {
-            String mensagem = this.producaoService.delete(codigo);
+            String mensagem = this.producaoService.delete(id);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
             
         } catch (Exception e) {
@@ -72,10 +73,10 @@ public class ProducaoController {
         }
     }
 
-    @GetMapping("/findByCodigo/{codigo}")
-    public ResponseEntity<Producao> findByCodigo(@PathVariable String codigo){
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<Producao> findByCodigo(@PathVariable Integer id){
         try {
-            Producao producao =this.producaoService.findByCodigo(codigo);
+            Producao producao =this.producaoService.findById(id);
             return new ResponseEntity<>(producao, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
