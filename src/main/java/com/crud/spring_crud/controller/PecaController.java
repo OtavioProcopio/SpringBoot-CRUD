@@ -14,23 +14,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crud.spring_crud.entity.Producao;
-import com.crud.spring_crud.service.ProducaoService;
+import com.crud.spring_crud.entity.Peca;
+import com.crud.spring_crud.service.PecaService;
+
 
 
 @RestController
-@RequestMapping("/producao")
-public class ProducaoController {
+@RequestMapping("/peca")
+public class PecaController {
 
-    @Autowired
-    private ProducaoService producaoService;
+   @Autowired
+    private PecaService pecaService;
 
 
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Producao producao){    
+    public ResponseEntity<String> save(@RequestBody Peca peca){    
         try {
 
-            String mensagem = this.producaoService.save(producao);
+            String mensagem = this.pecaService.save(peca);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
 
         } catch (Exception e) {
@@ -40,9 +41,9 @@ public class ProducaoController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@RequestBody Producao producao, @PathVariable Integer producaoId){
+    public ResponseEntity<String> update(@RequestBody Peca peca, @PathVariable Integer pecaId){
         try {
-            String mensagem = this.producaoService.update(producao, producaoId);
+            String mensagem = this.pecaService.update(peca, pecaId);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
             
         } catch (Exception e) {
@@ -52,9 +53,9 @@ public class ProducaoController {
     
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable Integer producaoId){
+    public ResponseEntity<String> delete(@PathVariable Integer pecaId){
         try {
-            String mensagem = this.producaoService.delete(producaoId);
+            String mensagem = this.pecaService.delete(pecaId);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
             
         } catch (Exception e) {
@@ -63,9 +64,9 @@ public class ProducaoController {
     }
 
     @GetMapping("/findAll")
-    public ResponseEntity<List<Producao>> findAll(){  
+    public ResponseEntity<List<Peca>> findAll(){  
         try {
-            List<Producao> lista = this.producaoService.findAll();
+            List<Peca> lista = this.pecaService.findAll();
             return new ResponseEntity<>(lista, HttpStatus.OK);
             
         } catch (Exception e) {
@@ -74,13 +75,15 @@ public class ProducaoController {
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<Producao> findByProducaoId(@PathVariable Integer producaoId){
+    public ResponseEntity<Peca> findByPecaId(@PathVariable Integer pecaId){
         try {
-            Producao producao =this.producaoService.findByProducaoId(producaoId);
-            return new ResponseEntity<>(producao, HttpStatus.OK);
+            Peca peca =this.pecaService.findByPecaId(pecaId);
+            return new ResponseEntity<>(peca, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    
 
 }

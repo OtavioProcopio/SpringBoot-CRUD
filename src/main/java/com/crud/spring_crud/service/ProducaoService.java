@@ -20,14 +20,14 @@ public class ProducaoService {
         return "Producao salva com Sucesso!";
     }
 
-    public String update(Producao producao, Integer id){
-        producao.setId(id);
+    public String update(Producao producao, Integer producaoId){
+        producao.setProducaoId(producaoId);
         this.producaoRepository.save(producao);
         return "Produçao atualizada";
     }
 
-    public String delete(Integer id){ 
-        this.producaoRepository.deleteById(id);
+    public String delete(Integer producaoId){ 
+        this.producaoRepository.deleteById(producaoId);
         return "Producao deletada";
     }
 
@@ -36,8 +36,8 @@ public class ProducaoService {
         return lista;
     }
 
-    public Producao findById(Integer id){
-        Producao producao =this.producaoRepository.findById(id).get();
+    public Producao findByProducaoId(Integer producaoId){
+        Producao producao =this.producaoRepository.findById(producaoId).get();
         return producao;
     }
 }

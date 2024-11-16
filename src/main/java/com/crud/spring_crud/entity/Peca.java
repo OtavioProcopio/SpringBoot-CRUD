@@ -14,13 +14,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Producao {
+public class Peca {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer producaoId; 
-    private String codigo;
+    private Integer pecaId;
+    private String codigoPeca;
     private String tipo;
-    private Integer prioridade;
-    private String ordemProd;
 }
