@@ -25,12 +25,11 @@ public class ProducaoController {
     @Autowired
     private ProducaoService producaoService;
 
-
     @PostMapping("/save")
     public ResponseEntity<String> save(@RequestBody Producao producao){    
         try {
 
-            String mensagem = this.producaoService.save(producao);
+            String mensagem = producaoService.save(producao);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
 
         } catch (Exception e) {
@@ -48,8 +47,7 @@ public class ProducaoController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
-    }
-    
+    }    
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable Integer producaoId){
@@ -82,5 +80,4 @@ public class ProducaoController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
-
 }

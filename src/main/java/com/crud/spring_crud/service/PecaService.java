@@ -11,18 +11,18 @@ import com.crud.spring_crud.repository.PecaRepository;
 @Service
 public class PecaService {
 
-     @Autowired
+    @Autowired
     private PecaRepository pecaRepository;
 
     public String save(Peca peca){
         this.pecaRepository.save(peca);
-        return "Peça salva com Sucesso!";
+        return "Peça salva com Sucesso!";  
     }
 
     public String update(Peca peca, Integer pecaId){
-        peca.setPecaId(pecaId);
         this.pecaRepository.save(peca);
-        return "Peça atualizada";
+        return "Peça atualizada com sucesso!";
+    
     }
 
     public String delete(Integer pecaId){ 
@@ -39,5 +39,7 @@ public class PecaService {
         Peca peca =this.pecaRepository.findById(pecaId).get();
         return peca;
     }
-
 }
+
+
+

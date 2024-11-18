@@ -25,29 +25,31 @@ public class PecaController {
 
    @Autowired
     private PecaService pecaService;
+    
 
 
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Peca peca){    
+    public ResponseEntity<String> save(@RequestBody Peca peca) {
         try {
-
             String mensagem = this.pecaService.save(peca);
             return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
-
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
-
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Erro ao salvar a peça.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping("/update/{id}")
+
+    @PutMapping("/update/{pecaId}")
     public ResponseEntity<String> update(@RequestBody Peca peca, @PathVariable Integer pecaId){
-        try {
+        try {        
             String mensagem = this.pecaService.update(peca, pecaId);
-            return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
+            return new ResponseEntity<>(mensagem, HttpStatus.OK);
             
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Erro ao atualizar a peça.", HttpStatus.BAD_REQUEST);
+
         }
     }
     
