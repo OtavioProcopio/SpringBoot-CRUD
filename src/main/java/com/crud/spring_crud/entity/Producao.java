@@ -1,5 +1,8 @@
 package com.crud.spring_crud.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,9 +27,24 @@ public class Producao {
 
     @ManyToOne
     @JoinColumn(name = "codigo_peca", referencedColumnName = "codigoPeca", nullable = false)
+    @JsonBackReference
+
     private Peca peca;
 
     private String tipo;
     private Integer prioridade;
     private String ordemProd;
+
+    public Peca getPeca(){
+       return this.peca; 
+    }
+
+    public void setPeca(Peca peca){
+        this.peca = peca;
+    }
+    
+    @JsonProperty("codigoPeca")
+    public String getCodigoPeca() {
+        return this.peca != null ? this.peca.getCodigoPeca() : null;
+    }
 }
