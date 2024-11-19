@@ -32,9 +32,6 @@ public class ProducaoService {
         producaoRepository.save(producao);
         return "Produção salva com sucesso!";
     }
-    
-    
-    
 
     public String update(Producao producao, Integer producaoId){
         this.producaoRepository.save(producao);

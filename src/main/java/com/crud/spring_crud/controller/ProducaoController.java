@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crud.spring_crud.entity.Producao;
 import com.crud.spring_crud.service.ProducaoService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @RestController
 @RequestMapping("/producao")
+@Tag(name = "Produção", description = "Apis de Crud para Produção")
 public class ProducaoController {
 
     @Autowired

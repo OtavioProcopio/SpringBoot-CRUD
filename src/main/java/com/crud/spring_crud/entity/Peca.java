@@ -2,7 +2,7 @@ package com.crud.spring_crud.entity;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -37,7 +37,7 @@ public class Peca {
     private TipoPeca tipoPeca;
 
     @OneToMany(mappedBy = "peca", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonBackReference
     private List<Producao> producoes;
 
     public enum TipoPeca {
