@@ -78,6 +78,15 @@ mvn spring-boot:run
 | GET     | `/producao/findAll`              | Retorna todas as produções.          |
 | GET     | `/producao/findById/{producaoId}`| Retorna uma produção pelo ID.        |
 
+## Contribuições
+Sinta-se à vontade para contribuir com melhorias! Para isso:
+
+Faça um fork do projeto.
+
+Crie uma branch para a sua funcionalidade (git checkout -b minha-feature).
+
+Envie um pull request com as suas alterações.
+
 
 
 
