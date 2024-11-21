@@ -60,23 +60,10 @@ mvn spring-boot:run
 
 ## Peça
 
-| Método  | Endpoint                 | Descrição                            |
-|---------|------------------------- |--------------------------------------|
-| POST    | `/peca/save`             | Salva uma nova peça.                 |
-| PUT     | `/peca/update/{pecaId}`  | Atualiza uma peça existente.         |
-| DELETE  | `/peca/delete/{pecaId}`  | Deleta uma peça pelo ID.             |
-| GET     | `/peca/findAll`          | Retorna todas as peças.              |
-| GET     | `/peca/findById/{pecaId}`| Retorna uma peça pelo ID.            |
-
+![Endpoints da entidade Peça](src\main\java\com\crud\spring_crud\utils\imgs\swagger-peça.png)
 ## Produção
 
-| Método  | Endpoint                         | Descrição                           |
-|---------|----------------------------------|--------------------------------------|
-| POST    | `/producao/save`                 | Salva uma nova produção.             |
-| PUT     | `/producao/update/{producaoId}`  | Atualiza uma produção existente.     |
-| DELETE  | `/producao/delete/{producaoId}`  | Deleta uma produção pelo ID.         |
-| GET     | `/producao/findAll`              | Retorna todas as produções.          |
-| GET     | `/producao/findById/{producaoId}`| Retorna uma produção pelo ID.        |
+![Endpoints da entidade Produção](src\main\java\com\crud\spring_crud\utils\imgs\swagger-produçao.png)
 
 ## Contribuições
 Sinta-se à vontade para contribuir com melhorias! Para isso:
