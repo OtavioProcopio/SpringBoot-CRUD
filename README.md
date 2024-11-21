@@ -60,10 +60,10 @@ mvn spring-boot:run
 
 ## Peça
 
-![Endpoints da entidade Peça](src\main\java\com\crud\spring_crud\utils\imgs\swagger-peça.png)
+![Endpoints da entidade Peça](src/main/java/com/crud/spring_crud/utils/imgs/swagger-peca.png)
 ## Produção
 
-![Endpoints da entidade Produção](src\main\java\com\crud\spring_crud\utils\imgs\swagger-produçao.png)
+![Endpoints da entidade Produção](src/main/java/com/crud/spring_crud/utils/imgs/swagger-producao.png)
 
 ## Contribuições
 Sinta-se à vontade para contribuir com melhorias! Para isso:
