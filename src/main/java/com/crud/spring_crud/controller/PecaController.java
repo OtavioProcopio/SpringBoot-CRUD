@@ -17,10 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crud.spring_crud.entity.Peca;
 import com.crud.spring_crud.service.PecaService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 
 @RestController
 @RequestMapping("/peca")
+@Tag(name = "Peças", description = "Apis de Crud para Peças")
 public class PecaController {
 
    @Autowired
