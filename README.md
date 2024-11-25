@@ -17,7 +17,7 @@ Este é um projeto de CRUD básico usando **Spring Boot**, com integração ao b
 ---
 
 ## Tecnologias Utilizadas
-- **Java 23**
+- **Java 21**
 - **Spring Boot 3.4.0-SNAPSHOT**
 - **MySQL**
 - **Lombok**
@@ -27,7 +27,7 @@ Este é um projeto de CRUD básico usando **Spring Boot**, com integração ao b
 ---
 
 ## Requisitos
-1. **Java** (versão 17 ou superior).
+1. **Java** (versão 21).
 2. **Maven** para gerenciar dependências.
 3. **MySQL** para o banco de dados.
 4. Ferramenta de API Client (como Postman) ou navegador para testar os endpoints.

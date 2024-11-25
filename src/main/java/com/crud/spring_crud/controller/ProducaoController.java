@@ -41,25 +41,25 @@ public class ProducaoController {
         }
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update/{producaoId}")
     public ResponseEntity<String> update(@RequestBody Producao producao, @PathVariable Integer producaoId){
         try {
             String mensagem = this.producaoService.update(producao, producaoId);
-            return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
+            return new ResponseEntity<>(mensagem, HttpStatus.OK);
             
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Erro ao fazer Update", HttpStatus.BAD_REQUEST);
         }
     }    
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{producaoId}")
     public ResponseEntity<String> delete(@PathVariable Integer producaoId){
         try {
             String mensagem = this.producaoService.delete(producaoId);
-            return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
+            return new ResponseEntity<>(mensagem, HttpStatus.NO_CONTENT);
             
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Erro ao Deletar", HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -74,7 +74,7 @@ public class ProducaoController {
         }
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/findById/{producaoId}")
     public ResponseEntity<Producao> findByProducaoId(@PathVariable Integer producaoId){
         try {
             Producao producao =this.producaoService.findByProducaoId(producaoId);
