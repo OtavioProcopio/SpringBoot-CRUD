@@ -34,11 +34,18 @@ public class ProducaoService {
     }
 
     public String update(Producao producao, Integer producaoId){
+        if (!producaoRepository.existsById(producaoId)) {
+            return "Erro: Produção com ID " + producaoId + " não encontrada.";
+        }
+        producao.setProducaoId(producaoId);
         this.producaoRepository.save(producao);
         return "Produçao atualizada";
     }
 
     public String delete(Integer producaoId){ 
+        if (!producaoRepository.existsById(producaoId)) {
+            return "Erro: Produção com ID " + producaoId + " não encontrada.";
+        }
         this.producaoRepository.deleteById(producaoId);
         return "Producao deletada";
     }
