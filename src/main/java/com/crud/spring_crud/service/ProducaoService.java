@@ -39,7 +39,7 @@ public class ProducaoService {
         }
         producao.setProducaoId(producaoId);
         this.producaoRepository.save(producao);
-        return "Produçao atualizada";
+        return "Produção atualizada com sucesso!";
     }
 
     public String delete(Integer producaoId){ 
@@ -56,7 +56,6 @@ public class ProducaoService {
     }
 
     public Producao findByProducaoId(Integer producaoId){
-        Producao producao =this.producaoRepository.findById(producaoId).get();
-        return producao;
+        return producaoRepository.findById(producaoId).orElseThrow(() -> new RuntimeException("Produção com ID " + producaoId + " não encontrada."));
     }
 }
